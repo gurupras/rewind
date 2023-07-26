@@ -158,7 +158,7 @@ pub fn setup_web_server(listener: TcpListener) {
                 }  else if request.starts_with("GET /api/finalize") {
                     // Get m3u8 path, copy the file to another location
                     let m3u8_path = get_m3u8_path();
-                    let copy_path = get_m3u8_path() + ".copy";
+                    let copy_path = get_m3u8_path() + ".copy.m3u8";
                     let mut src = File::open(m3u8_path).expect("Failed to open m3u8 file");
                     let mut dst = File::create(copy_path.clone()).expect("Failed to create the m3u8 copy file");
                     let mut contents = String::new();
