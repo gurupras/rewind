@@ -52,7 +52,8 @@ fn start_ffmpeg(duration: i32) {
         let display = env::var("DISPLAY").unwrap_or(":0".to_string());
         input = String::from(display) + ".0+0,0";
     } else if cfg!(target_os = "macos") {
-        // vec!["-i", "avfoundation"]
+        file = String::from("avfoundation");
+        input = String::from("1");
     } else {
         panic!("Unsupported platform")
     };
