@@ -166,7 +166,7 @@ pub fn setup_web_server(listener: TcpListener) {
                     // Write #EXT-X-ENDLIST to signal end of manifest
                     contents += "#EXT-X-ENDLIST";
                     dst.write_all(contents.as_bytes()).expect("Failed to copy bytes into m3u8 copy file");
-                    dst.flush();
+                    dst.flush().expect("Faile to flush data to m3u8 copy file");
                     // Ask ffmpeg to convert this into a file
                     let concat_file = ffmpeg_concat(copy_path.clone());
                     // Stream back file path
